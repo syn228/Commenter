@@ -18,6 +18,11 @@ it('shows a text area and a button', () => {
 });
 
 it('allows users to write in the text area', () => {
-  expect(wrapped.find('textarea').length).toEqual(1)
+  wrapped.find('textarea').simulate('change', {
+    target: { value: 'new comment'}
+  })
+  wrapped.update()
+  
+  expect(wrapped.find('textarea').prop('value')).toEqual('new comment')
 });
 
