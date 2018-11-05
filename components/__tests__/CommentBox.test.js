@@ -20,9 +20,19 @@ it('shows a text area and a button', () => {
 it('allows users to write in the text area', () => {
   wrapped.find('textarea').simulate('change', {
     target: { value: 'new comment'}
-  })
-  wrapped.update()
+  });
+  wrapped.update();
   
-  expect(wrapped.find('textarea').prop('value')).toEqual('new comment')
+  expect(wrapped.find('textarea').prop('value')).toEqual('new comment');
 });
 
+it('clears the text area when the form is submitted', () => {
+  wrapped.find('textarea').simulate('change', {
+    target: {value: 'new comment'}
+  });
+  wrapped.update();
+  wrapped.find('form').simulate('submit');
+  wrapped.update();
+
+  expect(wrapped.find('textarea').prop('value')).toEqual('')
+})
