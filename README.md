@@ -11,3 +11,6 @@ This is a simple commenting application created to do some testing with Jest and
 *Axios/Moxios <br />
 *Jest/Enzyme <br />
 *Redux/Middlewares <br />
+
+## Note
+The middleware that handles asynchronous execution could be substitued with react-promise library.
